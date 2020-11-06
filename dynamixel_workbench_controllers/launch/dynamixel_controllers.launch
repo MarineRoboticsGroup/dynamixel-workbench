@@ -1,11 +1,11 @@
 <launch>
-  <arg name="usb_port"                default="/dev/ttyUSB0"/>
+  <arg name="usb_port"                default="/dev/dynamixel"/>
   <arg name="dxl_baud_rate"           default="57600"/>
-  <arg name="namespace"               default="dynamixel_workbench"/>
+  <arg name="namespace"               default="mrg1"/>
 
   <arg name="use_moveit"              default="false"/>
   <arg name="use_joint_state"         default="true"/>
-  <arg name="use_cmd_vel"             default="false"/>
+  <arg name="use_cmd_vel"             default="true"/>
 
   <param name="dynamixel_info"          value="$(find dynamixel_workbench_controllers)/config/basic.yaml"/>
 
@@ -19,8 +19,8 @@
       dxl_read_period: 0.010
       dxl_write_period: 0.010
       mobile_robot_config:                <!--this values will be set when 'use_cmd_vel' is true-->
-        seperation_between_wheels: 0.160  <!--default value is set by reference of TB3-->
-        radius_of_wheel: 0.033            <!--default value is set by reference of TB3-->
+        seperation_between_wheels: 0.305  <!--changed to value for smaller swarmbot-->
+        radius_of_wheel: 0.06             <!--changed to value for smaller swarmbot-->
     </rosparam>
   </node>
 </launch>
